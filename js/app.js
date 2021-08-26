@@ -18,6 +18,10 @@
  * Define Global Variables
  * 
 */
+// Global Variable for Navigation
+const navigationbar = document.getElementById("navbar__list")
+// Global Variable for each section
+const section = document.querySelectorAll("section")
 
 
 /**
@@ -35,6 +39,8 @@
 */
 
 // build the nav
+
+
 
 
 // Add class 'active' to section when near top of viewport
