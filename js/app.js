@@ -21,7 +21,7 @@
 // Global Variable for Navigation
 const navigationbar = document.getElementById("navbar__list")
 // Global Variable for each section
-const section = document.querySelectorAll("section")
+const sections = document.querySelectorAll("section")
 
 
 /**
@@ -40,8 +40,19 @@ const section = document.querySelectorAll("section")
 
 // build the nav
 
+const orderlist = document.createElement("li");
 
+function NavBuilder() {
+    for (const section of sections) {
+        const selectorId = section.id;
+        const selectordata = section.dataset.nav;
+        orderlist.innerHTML = `<a href="${selectorId}">${selectordata}</a>`
 
+    };
+    navigationbar.appendChild(orderlist);
+};
+
+NavBuilder()
 
 // Add class 'active' to section when near top of viewport
 
