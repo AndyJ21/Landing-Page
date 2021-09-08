@@ -51,7 +51,7 @@ function NavBuilder() {
         const selectordata = section.dataset.nav;
 
         //Add html code and id and section name every loop cycle
-        orderlist += `<li><a class ="" href="#${selectorId}">${selectordata}</a></li>`;
+        orderlist += `<li><a class="menu__link" href="#${selectorId}">${selectordata}</a></li>`;
 
     };
     //Append all elements in naviagionbar
