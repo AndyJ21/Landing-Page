@@ -68,15 +68,16 @@ section {
     padding-left: 0;
     margin: 0;
     text-align: right;
+
 }
 
 .navbar__menu li {
-    display: inline-block;
+    display: inline-flex;   
 }
 
 .navbar__menu .menu__link {
-    display: block;
-    padding: 1em;
+    padding: 0.5em;
+    display: inline-block;
     font-weight: bold;
     text-decoration: none;
     color: #000;
