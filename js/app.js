@@ -40,16 +40,22 @@ const sections = document.querySelectorAll("section")
 
 // build the nav
 
-const orderlist = document.createElement("li");
+//Variable to append html code
+let orderlist = "";
 
 function NavBuilder() {
     for (const section of sections) {
+
+        //Targeting ids and data-nav
         const selectorId = section.id;
         const selectordata = section.dataset.nav;
-        orderlist.innerHTML = `<a href="${selectorId}">${selectordata}</a>`
+
+        //Add html code and id and section name every loop cycle
+        orderlist += `<li><a class ="" href="#${selectorId}">${selectordata}</a></li>`;
 
     };
-    navigationbar.appendChild(orderlist);
+    //Append all elements in naviagionbar
+    navigationbar.innerHTML = orderlist;
 };
 
 NavBuilder()
