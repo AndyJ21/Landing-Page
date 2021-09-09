@@ -19,9 +19,9 @@
  * 
 */
 // Global Variable for Navigation
-const navigationbar = document.getElementById("navbar__list")
+const navigationbar = document.getElementById("navbar__list");
 // Global Variable for each section
-const sections = document.querySelectorAll("section")
+const sections = document.querySelectorAll("section");
 
 
 /**
@@ -46,21 +46,56 @@ let orderlist = "";
 function NavBuilder() {
     for (const section of sections) {
 
-        //Targeting ids and data-nav
+        //Targeting ids and data-nav from section
         const selectorId = section.id;
         const selectordata = section.dataset.nav;
 
-        //Add html code and id and section name every loop cycle
+        //Add html code, class and section name to every loop cycle
         orderlist += `<li><a class="menu__link" href="#${selectorId}">${selectordata}</a></li>`;
 
     };
-    //Append all elements in naviagionbar
+    //Append all elements in navigation bar
     navigationbar.innerHTML = orderlist;
-};
+}
 
-NavBuilder()
+NavBuilder();
 
 // Add class 'active' to section when near top of viewport
+
+ // Add class 'active' to section when near top of viewport 
+// Get the Top of the section
+function targetActive(section){
+    return section.getBoundingClientRect().top;
+}
+
+// Remove active class for other sections
+function removeActive(section){
+    return section.classList.remove("your-active-class");
+}
+
+// Add active class to the current section
+function addActive(condition, section){
+    if(condition){
+    section.classList.add("your-active-class");
+    };
+}
+
+//Implement all functions in adding or removing active class
+function activeSection(){
+    for(const section of sections){
+        const targetactive = targetActive(section);
+        const viewport =  targetactive > -200 && targetactive < 200;
+
+        removeActive(section);
+
+        addActive(viewport, section);
+
+    };
+}
+
+//Add envent listener to window 
+window.addEventListener('scroll', activeSection);
+
 
 
 // Scroll to anchor ID using scrollTO event
